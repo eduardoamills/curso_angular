@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-md-3">
+    <label>Name</label><input class="form-control"  ng-model="search.name">
+  </div>
+  <div class="col-md-3">
+    <label>Season</label>
+    <select class="form-control"  ng-model="search.season">
+      <option></option>
+      <option ng-repeat="season in seasons" value="{{season}}">{{season}}</option>
+    </select>
+  </div>
+
+  <div class="col-md-3">
+    <label>Episode</label>
+    <select class="form-control" ng-model="search.cap">
+      <option></option>
+      <option ng-repeat="cap in caps" value="{{cap}}">{{cap}}</option>
+    </select>
+  </div>
+  <div class="col-md-3">
+    <a href="#/add" > Add Character</a>
+  </div>
+</div>
+<hr></hr>
+<div class="row">
+  <div class="col-md-12" >
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Season</th>
+        <th>Episode</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+
+        <tr ng-repeat="dato in data | filter: search ">
+          <td>{{dato.name}}</td>
+          <td>{{dato.season}}</td>
+          <td>{{dato.episode}}</td>
+          <td><a href="#/detail/{{dato.id}}"> View</a> | <a href="#/delete/{{dato.id}}"> Delete </a> </td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+</div>
